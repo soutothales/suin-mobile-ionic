@@ -14,6 +14,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginService } from '../services/login/login-service';
 import { HTTP } from '@ionic-native/http';
+import { SettingsPage } from '../pages/settings/settings';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HTTP } from '@ionic-native/http';
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    SettingsPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { HTTP } from '@ionic-native/http';
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    SettingsPage
   ],
   providers: [
     StatusBar,

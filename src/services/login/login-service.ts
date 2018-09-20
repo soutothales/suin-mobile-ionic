@@ -12,7 +12,7 @@ export class LoginService{
   }
 
   hasValidToken() {
-    return false;
+    return true;
   }
 
   login(username: string, password: string){
