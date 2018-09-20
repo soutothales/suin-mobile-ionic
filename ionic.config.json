@@ -1,0 +1,7 @@
+{
+  "name": "suin-mobile-agent",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
