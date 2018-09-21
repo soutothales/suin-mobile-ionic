@@ -1,5 +1,7 @@
 # SUIN Mobile Agent
 
+[![Build Status](https://travis-ci.com/GabrielSVinha/suin-mobile-agent.svg?token=NQ7cxECnfz7DY5LmsMzN&branch=master)](https://travis-ci.com/GabrielSVinha/suin-mobile-agent)
+
 A mobile app to load data from the farm to the cloud servers.
 
 ## Run
