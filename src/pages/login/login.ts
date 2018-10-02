@@ -1,6 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { LoginService } from '../../services/login/login-service';
+import { Component } from '@angular/core';
+import {IonicPage, MenuController, NavController, NavParams} from 'ionic-angular';
 
 /**
  * Generated class for the LoginPage page.
@@ -15,31 +14,28 @@ import { LoginService } from '../../services/login/login-service';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  @ViewChild('email') user: any;
-  private username: string;
-  private password: string;
-  private error: string;
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-              public loginService: LoginService) {
+
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public menuCtrl: MenuController) {
+  }
+
+  ionViewWillEnter() {
+    this.menuCtrl.swipeEnable(false);
+    console.log("SuinApp");
+
+  }
+
+  ionViewDidLeave() {
+    this.menuCtrl.swipeEnable(true);
   }
 
   ionViewDidLoad() {
-    setTimeout(() => {
-      this.user.setFocus();
-    }, 500);
+    console.log('ionViewDidLoad LoginPage');
   }
 
-  login(): void {
-    this.loginService.login(
-      this.username,
-      this.password
-    ).then((response) => {
-      if(response.status == 401){
-        throw new Error("Failed authentication for username and password.");
-      }
-    }).catch((error) => {
-      console.error(error);
-      this.error = error.message;
-    });
+  login() {
+    this.navCtrl.setRoot('HomePage');
   }
+
 }
