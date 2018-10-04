@@ -22,6 +22,16 @@ ionic serve
 
 This will open a tab in our browser.
 
+### PS.: Se for rodar num navegador, recomendo rodar no chrome com as configurações de segurança desabilitadas, segue o comando:
+WINDOWS:
+Open the start menu
+Type windows+R or open "Run"
+Execute the following command: chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security
+
+LINUX:
+$ google-chrome --disable-web-security
+
+
 ## Deploy
 
 Not yet.
