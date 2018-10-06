@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import {IonicPage, MenuController, NavController, NavParams} from 'ionic-angular';
+import { CredentialsDTO } from "../../models/credentials.dto";
+//import { AuthService } from "../../services/auth.service";
+import { LoginService } from "../../services/login/login-service";
 
 /**
  * Generated class for the LoginPage page.
@@ -15,9 +18,19 @@ import {IonicPage, MenuController, NavController, NavParams} from 'ionic-angular
 })
 export class LoginPage {
 
+  username: string;
+  senha: string;
+
+  creds: CredentialsDTO = {
+    username: "",
+    senha: ""
+  };
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public menuCtrl: MenuController) {
+              public menuCtrl: MenuController,
+              //public authService: AuthService,
+              public loginService: LoginService) {
   }
 
   ionViewWillEnter() {
@@ -35,7 +48,17 @@ export class LoginPage {
   }
 
   login() {
-    this.navCtrl.setRoot('HomePage');
+    //this.authService.authenticate(this.creds)
+    this.loginService.login(this.username, this.senha)
+                      .subscribe(response => {
+                          console.log(response);
+                          return this.navCtrl.setRoot("HomePage");
+                        },
+                        error => {
+                          console.log(error)
+                          // this.alertService.error(error);
+                          // this.loading = false;
+                        });
   }
 
 }
