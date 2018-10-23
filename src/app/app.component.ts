@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+//import {CadastroPorcoPage} from "../pages/cadastro-porco/cadastro-porco";
 
 @Component({
   templateUrl: 'app.html'
@@ -20,7 +21,8 @@ export class MyApp {
     this.pages = [
       // { title: 'Home', component: 'HomePage' },
       // { title: 'List', component: 'ListPage' },
-      { title: 'Login', component: 'LoginPage' }
+      { title: 'Login', component: 'LoginPage' },
+      { title: 'Cadastro de Porco', component: 'CadastroPorcoPage' }
     ];
 
   }

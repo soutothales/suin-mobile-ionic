@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {IonicPage, MenuController, NavController, NavParams} from 'ionic-angular';
-import { CredentialsDTO } from "../../models/credentials.dto";
+//import { CredentialsDTO } from "../../models/credentials.dto";
 //import { AuthService } from "../../services/auth.service";
 import { LoginService } from "../../services/login/login-service";
 
@@ -20,11 +20,6 @@ export class LoginPage {
 
   username: string;
   senha: string;
-
-  creds: CredentialsDTO = {
-    username: "",
-    senha: ""
-  };
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
