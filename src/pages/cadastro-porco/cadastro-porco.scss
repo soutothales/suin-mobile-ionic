@@ -1,4 +1,15 @@
 page-cadastro-porco {
 
+}
 
+.cadastradoToast {
+  .toast-message {
+    background: color($colors, secondary);
+  }
+}
+
+.notCadastradoToast {
+  .toast-message {
+    background: color($colors, danger);
+  }
 }

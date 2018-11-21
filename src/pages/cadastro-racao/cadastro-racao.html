@@ -1,0 +1,55 @@
+<!--
+  Generated template for the CadastroRacaoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Cadastro de Ração</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-item>
+        <ion-label color="primary" stacked>Nome do empregado responsável</ion-label>
+        <ion-input [(ngModel)]="empregado" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Data da compra</ion-label>
+        <ion-datetime displayFormat="DD MM YYYY" [(ngModel)]="datacompra"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+        <ion-label color="primary" stacked>Tipo de ração comprada</ion-label>
+        <ion-input [(ngModel)]="tiporacao" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label color="primary" stacked>Quantidade em quilogramas</ion-label>
+        <ion-input [(ngModel)]="quantidade" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label color="primary" stacked>Fornecedor</ion-label>
+        <ion-input [(ngModel)]="fornecedor" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label color="primary" stacked>Preço</ion-label>
+        <ion-input [(ngModel)]="preco" type="number"></ion-input>
+    </ion-item>
+
+    <button ion-button block color="danger"
+          name="cadastrarRacao" (click)="cadastrarRacao()">Cadastrar ração</button>
+    
+
+</ion-content>

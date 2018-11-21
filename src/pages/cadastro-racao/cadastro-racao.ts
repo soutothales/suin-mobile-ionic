@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import {CadastroService} from "../../services/cadastro/cadastro-service";
 
 /**
- * Generated class for the CadastroPorcoPage page.
+ * Generated class for the CadastroRacaoPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,15 +11,17 @@ import {CadastroService} from "../../services/cadastro/cadastro-service";
 
 @IonicPage()
 @Component({
-  selector: 'page-cadastro-porco',
-  templateUrl: 'cadastro-porco.html',
+  selector: 'page-cadastro-racao',
+  templateUrl: 'cadastro-racao.html',
 })
-export class CadastroPorcoPage {
+export class CadastroRacaoPage {
 
-  numporco: string;
-  origem: string;
-  peso: string;
-  idade: string;
+  preco: string;
+  fornecedor: string;
+  quantidade: string;
+  tiporacao: string;
+  empregado: string;
+  datacompra: string;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -28,11 +30,13 @@ export class CadastroPorcoPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CadastroPorcoPage');
+    console.log('ionViewDidLoad CadastroRacaoPage');
   }
 
-  cadastrarPorco() {
-    this.cadastroService.cadastrarPorco(this.numporco, this.origem, this.peso, this.idade)
+  cadastrarRacao() {
+    this.cadastroService.cadastrarRacao(this.preco, this.fornecedor,
+                                        this.quantidade, this.tiporacao,
+                                        this.empregado, this.datacompra)
       .subscribe(response => {
           console.log(response);
           this.cadastradoToast();
@@ -48,7 +52,7 @@ export class CadastroPorcoPage {
 
   cadastradoToast() {
     let toast = this.toastCtrl.create({
-      message: 'Porco adicionado com sucesso.',
+      message: 'Cadastro de ração feito com sucesso.',
       duration: 2000,
       position: 'top',
       cssClass: 'cadastradoToast',
@@ -63,7 +67,7 @@ export class CadastroPorcoPage {
 
   notCadastradoToast() {
     let toast = this.toastCtrl.create({
-      message: 'Porco não adicionado.',
+      message: 'Cadastro de ração não efetuado',
       duration: 2000,
       position: 'top',
       cssClass: 'notCadastradoToast',
@@ -75,7 +79,5 @@ export class CadastroPorcoPage {
 
     toast.present();
   }
-
-
 
 }
