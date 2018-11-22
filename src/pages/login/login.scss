@@ -17,3 +17,9 @@ page-login {
   }
 
 }
+
+.errorLogin {
+  .toast-message {
+    background: color($colors, danger);
+  }
+}
