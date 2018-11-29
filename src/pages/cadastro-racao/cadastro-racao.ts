@@ -21,7 +21,7 @@ export class CadastroRacaoPage {
   quantidade: string;
   tiporacao: string;
   empregado: string;
-  datacompra: string;
+  datacompra: string = new Date().toISOString();
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,

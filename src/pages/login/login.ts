@@ -21,6 +21,8 @@ export class LoginPage {
   username: string;
   senha: string;
 
+  
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public menuCtrl: MenuController,
@@ -30,7 +32,7 @@ export class LoginPage {
   }
 
   ionViewWillEnter() {
-    this.menuCtrl.swipeEnable(true);
+    this.menuCtrl.swipeEnable(false);
     console.log("SuinApp");
 
   }
