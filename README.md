@@ -35,3 +35,10 @@ $ google-chrome --disable-web-security
 ## Deploy
 
 Not yet.
+
+## Screens
+
+![Screenshot](login-screen-suin.png)
+![Screenshot](menu-screen.png)
+![Screenshot](cadsatro-racao-screen.png)
+![Screenshot](cadastro-porco-screen.png)
