@@ -32,7 +32,7 @@ export class LoginPage {
   }
 
   ionViewWillEnter() {
-    this.menuCtrl.swipeEnable(false);
+    this.menuCtrl.swipeEnable(true);
     console.log("SuinApp");
 
   }
