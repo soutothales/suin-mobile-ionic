@@ -19,16 +19,16 @@
   </div>
 
   <ion-list class='login-form'>
-      <ion-item>
+      <ion-item style="border:0px; width:90%; padding:0; margin:auto">
         <ion-input placeholder="Usuário" [(ngModel)]="username" name="username" type="text"></ion-input>
       </ion-item>
     
-      <ion-item>
+      <ion-item style="width:90%; padding:0; margin:auto">
         <ion-input placeholder="Senha" [(ngModel)]="senha" name="senha" type="password"></ion-input>
       </ion-item>
   </ion-list>
 
-  <button default class='login-button' type="submit" ion-button secondary [block]="true"
+  <button default class='login-button' type="submit" ion-button secondary [block]="true" style="width:90%; padding:0; margin:auto"
   (click)="login()">Entrar</button>
 
 </ion-content>
