@@ -15,35 +15,43 @@
 
 </ion-header>
 
+<div class='img-container'>
+    
+</div>
 
 <ion-content padding>
 
-  <ion-list style="width: 90%; margin: auto; margin-top: 15%;" class='cadastro-form'>
+  <img src="assets/imgs/ration.jpg" alt="logo">
+
+  <ion-list style="width: 90%; margin: auto; margin-top: 7%;" class='cadastro-form'>
       <ion-item style="padding-left: 0px">
-          <ion-label color="primary">Tipo</ion-label>
+          <ion-label color="primary">Tipo: </ion-label>
           <ion-input [(ngModel)]="tiporacao" type="text" placeholder="Ex.: soja"></ion-input>
       </ion-item>
   
       <ion-item style="padding-left: 0px">
-          <ion-label color="primary">Quantidade</ion-label>
-          <ion-input [(ngModel)]="quantidade" type="number" placeholder="em kilogramas (kg)"></ion-input>
+          <ion-label color="primary">Quantidade: </ion-label>
+          <ion-input [brmasker]="{money: true, decimal: 3}"
+          [(ngModel)]="quantidade" type="tel" placeholder="em kilogramas (kg)"></ion-input>
       </ion-item>
   
       <ion-item style="padding-left: 0px">
-          <ion-label color="primary">Fornecedor</ion-label>
+          <ion-label color="primary">Fornecedor: </ion-label>
           <ion-input [(ngModel)]="fornecedor" type="text" placeholder="Ex.: Vegan Inc."></ion-input>
       </ion-item>
   
       <ion-item style="padding-left: 0px">
-          <ion-label color="primary">Preço</ion-label>
-          <ion-input [(ngModel)]="preco" type="number" placeholder="em Reais (R$)"></ion-input>
+          <ion-label color="primary">Preço: </ion-label>
+          <ion-input [brmasker]="{money: true}"
+          pattern="[0-9]*"
+          [(ngModel)]="preco" type="tel" placeholder="em Reais (R$)"></ion-input>
       </ion-item>
 
   </ion-list>
 
     
 
-    <button ion-button block style="width: 90%; margin: auto; margin-top: 60px;"
+    <button ion-button block style="width: 90%; margin: auto; margin-top: 13%;"
           name="cadastrarRacao" (click)="cadastrarRacao()">Cadastrar</button>
     
 

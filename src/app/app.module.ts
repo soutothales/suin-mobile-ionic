@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule, AlertController } from 'ionic-angular';
 import { HTTP } from '@ionic-native/http';
 import {HttpClientModule} from "@angular/common/http";
+import { BrMaskerModule } from 'brmasker-ionic-3';
 
 
 import { MyApp } from './app.component';
@@ -25,6 +26,7 @@ import {CadastroService} from "../services/cadastro/cadastro-service";
   imports: [
     BrowserModule,
     HttpClientModule,
+    BrMaskerModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -32,6 +34,7 @@ import {CadastroService} from "../services/cadastro/cadastro-service";
     MyApp
   ],
   providers: [
+    BrMaskerModule,
     StatusBar,
     SplashScreen,
     HTTP,

@@ -10,10 +10,10 @@
         
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           <ion-icon class='side-menu-icon' name="home" *ngIf="p.title == 'Início'"></ion-icon>
-          <ion-icon class='side-menu-icon' name="add" *ngIf="p.title != 'Início'"></ion-icon> {{p.title}}
+          <ion-icon class='side-menu-icon' name="add-circle" *ngIf="p.title != 'Início'"></ion-icon> {{p.title}}
       </button>
       <button menuClose ion-item (click)="logout()">
-          <ion-icon class='side-menu-icon' name="power"></ion-icon> Sair 
+          <ion-icon class='side-menu-icon' name="exit"></ion-icon> Sair 
       </button>
     </ion-list>
   </ion-content>

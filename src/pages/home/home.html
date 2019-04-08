@@ -7,12 +7,26 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Bem vindo ao Suin</h3>
+<ion-content padding class='welcome'>
 
-  <p>
-    Você pode acessar a página de cadastros no menu ao lado (a esquerda) ou clicando no botão abaixo.
-  </p>
+    <ion-card>
+        <ion-card-header>
+          <ion-card-title>Bem vindo ao Suin</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content light>
+            Você pode acessar a página de cadastros no menu ao lado (arrastando para direita) ou clicando nos botões abaixo.
+        </ion-card-content>
+      </ion-card>
 
-  <button ion-button secondary menuToggle block>Abrir menu</button>
+  <div class='buttons-container'>
+    
+      <button ion-button color="light" block (click)="openCadastroPage('Porco')">
+          <img src="assets/imgs/pork.png" alt="logo">Cadastrar porco</button>
+      <button ion-button color="light" block (click)="openCadastroPage('Racao')">
+          <img src="assets/imgs/ration.jpg" alt="logo">Cadastrar ração</button>
+      <button ion-button color="light" block (click)="logout()">
+          <ion-icon class='exit-icon' name="exit"></ion-icon>Sair</button>
+  </div>
+  
 </ion-content>

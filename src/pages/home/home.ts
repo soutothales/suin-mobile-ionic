@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {IonicPage, NavController} from 'ionic-angular';
+import { MyApp } from '../../app/app.component';
 
 @IonicPage()
 @Component({
@@ -8,8 +9,17 @@ import {IonicPage, NavController} from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+              public app: MyApp) {
 
+  }
+
+  openCadastroPage(page) {
+    this.navCtrl.setRoot('Cadastro' + page + 'Page');
+  }
+
+  logout() {
+    this.app.logout();
   }
 
 }
