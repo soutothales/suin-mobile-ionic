@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 //import {CadastroPorcoPage} from "../pages/cadastro-porco/cadastro-porco";
@@ -14,7 +14,10 @@ export class MyApp {
 
   pages: Array<{title: string, component: string}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform,
+              public statusBar: StatusBar,
+              public splashScreen: SplashScreen,
+              private alertController: AlertController) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -38,8 +41,26 @@ export class MyApp {
     });
   }
 
-  logout() {
-    this.nav.setRoot('LoginPage')
+  async logout() {
+    const alert = await this.alertController.create({
+      title: 'Você deseja realmente sair?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Operação cancelada pelo usuário');
+          }
+        }, {
+          text: 'Sair',
+          handler: () => {
+            this.nav.setRoot('LoginPage')
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
   openPage(page) {
     // Reset the content nav to have just this page
