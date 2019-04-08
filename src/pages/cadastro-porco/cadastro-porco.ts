@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ToastController, AlertController} from 'ionic-angular';
 import {CadastroService} from "../../services/cadastro/cadastro-service";
 
 /**
@@ -24,39 +24,45 @@ export class CadastroPorcoPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public cadastroService: CadastroService,
-              private toastCtrl: ToastController) {
+              private toastCtrl: ToastController,
+              private alertController: AlertController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CadastroPorcoPage');
   }
 
-  cadastrarPorco() {
-    let toast = this.toastCtrl.create({
-      message: 'Porco não adicionado.',
-      duration: 2000,
-      position: 'top',
-      cssClass: 'notCadastradoToast',
+  async cadastrarPorco() {
+
+    const alert = await this.alertController.create({
+      title: 'Você deseja realmente cadastrar este porco?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Operação cancelada pelo usuário');
+          }
+        }, {
+          text: 'Enviar',
+          handler: () => {
+            this.cadastroService.cadastrarPorco(this.numporco, this.origem, this.peso, this.idade)
+            .subscribe(response => {
+                console.log(response);
+                this.cadastradoToast();
+                return this.navCtrl.setRoot("HomePage");
+              },
+              error => {
+                console.log(error);
+                this.notCadastradoToast();
+              });
+          }
+        }
+      ]
     });
 
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
-    });
+    await alert.present();
 
-    toast.present();
-
-    this.cadastroService.cadastrarPorco(this.numporco, this.origem, this.peso, this.idade)
-      .subscribe(response => {
-          console.log(response);
-          this.cadastradoToast();
-          return this.navCtrl.setRoot("HomePage");
-        },
-        error => {
-          console.log(error);
-          this.notCadastradoToast();
-          // this.alertService.error(error);
-          // this.loading = false;
-        });
   }
 
   cadastradoToast() {
