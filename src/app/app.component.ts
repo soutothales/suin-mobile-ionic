@@ -22,8 +22,8 @@ export class MyApp {
       { title: 'Início', component: 'HomePage' },
       // { title: 'List', component: 'ListPage' },
       // { title: 'Login', component: 'LoginPage' },
-      { title: 'Cadastro de Porco', component: 'CadastroPorcoPage' },
-      { title: 'Cadastro de Ração', component: 'CadastroRacaoPage' }
+      { title: 'Porco', component: 'CadastroPorcoPage' },
+      { title: 'Ração', component: 'CadastroRacaoPage' }
     
     ];
 

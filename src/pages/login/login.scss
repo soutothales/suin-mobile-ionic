@@ -1,8 +1,8 @@
 page-login {
 
-  h3 {
-    text-align: center;
-  }
+  // h3 {
+  //   text-align: center;
+  // }
 
   ion-title {
     text-align: center;
@@ -16,7 +16,26 @@ page-login {
     padding: 10px;
   }
 
+  // .login-button {
+  //   margin-top: 10%;
+  // }
+
+  // .login-input {
+  //   width: 95%
+  // }
+  
+  .img-container {
+    margin-top: 10%;
+  }
+  
+  .login-form {
+    margin-top: 10%;
+    margin-bottom: 20%;
+  }
+
 }
+
+
 
 .errorLogin {
   .toast-message {

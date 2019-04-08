@@ -7,28 +7,28 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Suin</ion-title>
+    <ion-title>SuinApp</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
 
-  <img src="assets/imgs/Porco_Aranhana.png" alt="logo">
+  <div class='img-container'>
+      <img src="assets/imgs/pork.png" alt="logo">
+  </div>
 
-  <ion-list>
-
-    <ion-item>
-      <ion-input placeholder="Usuário" [(ngModel)]="username" name="username" type="text"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-input placeholder="Senha" [(ngModel)]="senha" name="senha" type="password"></ion-input>
-    </ion-item>
-
+  <ion-list class='login-form'>
+      <ion-item>
+        <ion-input placeholder="Usuário" [(ngModel)]="username" name="username" type="text"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-input placeholder="Senha" [(ngModel)]="senha" name="senha" type="password"></ion-input>
+      </ion-item>
   </ion-list>
 
-  <button ion-button color="danger" [block]="true"
-          (click)="login()">Entrar</button>
+  <button default class='login-button' type="submit" ion-button secondary [block]="true"
+  (click)="login()">Entrar</button>
 
 </ion-content>

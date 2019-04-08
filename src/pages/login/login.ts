@@ -21,8 +21,6 @@ export class LoginPage {
   username: string;
   senha: string;
 
-  
-
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public menuCtrl: MenuController,

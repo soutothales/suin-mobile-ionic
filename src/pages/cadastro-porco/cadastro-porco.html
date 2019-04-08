@@ -10,7 +10,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Cadastro de Porco</ion-title>
+    <ion-title>Porco</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -18,27 +18,29 @@
 
 <ion-content padding>
 
-  <ion-item>
-    <ion-label color="primary" stacked>Número do Porco</ion-label>
-    <ion-input [(ngModel)]="numporco" type="text"></ion-input>
-  </ion-item>
+  <ion-list class='cadastro-form'>
+      <ion-item>
+          <ion-label color="primary">Número do Porco</ion-label>
+          <ion-input [(ngModel)]="numporco" type="number" placeholder="Ex.: 1234"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label color="primary">Local de Origem</ion-label>
+        <ion-input [(ngModel)]="origem" type="text" placeholder="nome da fazenda"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label color="primary">Peso</ion-label>
+        <ion-input [(ngModel)]="peso" type="number" placeholder="em kilogramas (kg)"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label color="primary">Idade</ion-label>
+        <ion-input [(ngModel)]="idade" type="number" placeholder="em meses"></ion-input>
+      </ion-item>
+  </ion-list>
 
-  <ion-item>
-    <ion-label color="primary" stacked>Local de Origem</ion-label>
-    <ion-input [(ngModel)]="origem" type="text"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label color="primary" stacked>Peso do porco</ion-label>
-    <ion-input [(ngModel)]="peso" type="number"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label color="primary" stacked>Idade</ion-label>
-    <ion-input [(ngModel)]="idade" type="number"></ion-input>
-  </ion-item>
-
-  <button ion-button block color="danger"
-          name="cadastrarPorco" (click)="cadastrarPorco()">Cadastrar porco</button>
+  <button class='cadastrar-button' ion-button block
+          name="cadastrarPorco" (click)="cadastrarPorco()">Cadastrar</button>
 
 </ion-content>
