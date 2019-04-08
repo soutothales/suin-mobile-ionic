@@ -32,6 +32,19 @@ export class CadastroPorcoPage {
   }
 
   cadastrarPorco() {
+    let toast = this.toastCtrl.create({
+      message: 'Porco não adicionado.',
+      duration: 2000,
+      position: 'top',
+      cssClass: 'notCadastradoToast',
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
+
     this.cadastroService.cadastrarPorco(this.numporco, this.origem, this.peso, this.idade)
       .subscribe(response => {
           console.log(response);
