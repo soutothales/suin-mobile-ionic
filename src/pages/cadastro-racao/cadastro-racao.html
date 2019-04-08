@@ -19,27 +19,27 @@
 <ion-content padding>
 
     <ion-item>
-        <ion-label color="primary" stacked>Tipo de ração comprada</ion-label>
-        <ion-input [(ngModel)]="tiporacao" type="text"></ion-input>
+        <ion-label color="primary">Tipo</ion-label>
+        <ion-input [(ngModel)]="tiporacao" type="text" placeholder="Ex.: soja"></ion-input>
     </ion-item>
 
     <ion-item>
-        <ion-label color="primary" stacked>Quantidade em quilogramas</ion-label>
-        <ion-input [(ngModel)]="quantidade" type="number"></ion-input>
+        <ion-label color="primary">Quantidade</ion-label>
+        <ion-input [(ngModel)]="quantidade" type="number" placeholder="em kilogramas (kg)"></ion-input>
     </ion-item>
 
     <ion-item>
-        <ion-label color="primary" stacked>Fornecedor</ion-label>
-        <ion-input [(ngModel)]="fornecedor" type="text"></ion-input>
+        <ion-label color="primary">Fornecedor</ion-label>
+        <ion-input [(ngModel)]="fornecedor" type="text" placeholder="Ex.: Vegan Inc."></ion-input>
     </ion-item>
 
     <ion-item>
-        <ion-label color="primary" stacked>Preço</ion-label>
-        <ion-input [(ngModel)]="preco" type="number"></ion-input>
+        <ion-label color="primary">Preço</ion-label>
+        <ion-input [(ngModel)]="preco" type="number" placeholder="em Reais (R$)"></ion-input>
     </ion-item>
 
-    <button ion-button block color="danger"
-          name="cadastrarRacao" (click)="cadastrarRacao()">Cadastrar ração</button>
+    <button ion-button block class='submit'
+          name="cadastrarRacao" (click)="cadastrarRacao()">Cadastrar</button>
     
 
 </ion-content>

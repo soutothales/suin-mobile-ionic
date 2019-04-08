@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ToastController, AlertController} from 'ionic-angular';
 import {CadastroService} from "../../services/cadastro/cadastro-service";
 
 /**
@@ -24,26 +24,45 @@ export class CadastroPorcoPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public cadastroService: CadastroService,
-              private toastCtrl: ToastController) {
+              private toastCtrl: ToastController,
+              private alertController: AlertController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CadastroPorcoPage');
   }
 
-  cadastrarPorco() {
-    this.cadastroService.cadastrarPorco(this.numporco, this.origem, this.peso, this.idade)
-      .subscribe(response => {
-          console.log(response);
-          this.cadastradoToast();
-          return this.navCtrl.setRoot("HomePage");
-        },
-        error => {
-          console.log(error);
-          this.notCadastradoToast();
-          // this.alertService.error(error);
-          // this.loading = false;
-        });
+  async cadastrarPorco() {
+
+    const alert = await this.alertController.create({
+      title: 'Você deseja realmente cadastrar este porco?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Operação cancelada pelo usuário');
+          }
+        }, {
+          text: 'Enviar',
+          handler: () => {
+            this.cadastroService.cadastrarPorco(this.numporco, this.origem, this.peso, this.idade)
+            .subscribe(response => {
+                console.log(response);
+                this.cadastradoToast();
+                return this.navCtrl.setRoot("HomePage");
+              },
+              error => {
+                console.log(error);
+                this.notCadastradoToast();
+              });
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+
   }
 
   cadastradoToast() {
