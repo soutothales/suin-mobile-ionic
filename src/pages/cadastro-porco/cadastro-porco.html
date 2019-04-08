@@ -18,29 +18,29 @@
 
 <ion-content padding>
 
-  <ion-list class='cadastro-form'>
-      <ion-item>
+  <ion-list style="width: 90%; margin: auto; margin-top: 15%;" class='cadastro-form'>
+      <ion-item style="padding-left: 0px">
           <ion-label color="primary">Número do Porco</ion-label>
           <ion-input [(ngModel)]="numporco" type="number" placeholder="Ex.: 1234"></ion-input>
       </ion-item>
     
-      <ion-item>
+      <ion-item style="padding-left: 0px">
         <ion-label color="primary">Local de Origem</ion-label>
         <ion-input [(ngModel)]="origem" type="text" placeholder="nome da fazenda"></ion-input>
       </ion-item>
     
-      <ion-item>
+      <ion-item style="padding-left: 0px">
         <ion-label color="primary">Peso</ion-label>
         <ion-input [(ngModel)]="peso" type="number" placeholder="em kilogramas (kg)"></ion-input>
       </ion-item>
     
-      <ion-item>
+      <ion-item style="padding-left: 0px">
         <ion-label color="primary">Idade</ion-label>
         <ion-input [(ngModel)]="idade" type="number" placeholder="em meses"></ion-input>
       </ion-item>
   </ion-list>
 
-  <button class='cadastrar-button' ion-button block
+  <button class='cadastrar-button' ion-button block style="width: 90%; margin: auto; margin-top: 60px;"
           name="cadastrarPorco" (click)="cadastrarPorco()">Cadastrar</button>
 
 </ion-content>
