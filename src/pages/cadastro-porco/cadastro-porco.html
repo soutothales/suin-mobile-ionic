@@ -23,24 +23,65 @@
   <ion-list style="width: 90%; margin: auto; margin-top: 15%;" class='cadastro-form'>
       <ion-item style="padding-left: 0px">
           <ion-label color="primary">Número do Porco: </ion-label>
-          <ion-input [(ngModel)]="numporco" type="number" placeholder="Ex. 1234"></ion-input>
+          <ion-input text-right [(ngModel)]="numporco" type="number" placeholder="Ex. 1234"></ion-input>
       </ion-item>
-    
+
       <ion-item style="padding-left: 0px">
-        <ion-label color="primary">Local de Origem: </ion-label>
-        <ion-input [(ngModel)]="origem" type="text" placeholder="nome da fazenda"></ion-input>
+        <ion-label color="primary">Data de entrada: </ion-label>
+        <ion-datetime min="2001"
+                      displayFormat="DD/MM/YYYY" 
+                      cancelText="Cancelar"
+                      doneText="Ok"
+                      placeholder="Ex. 12/08/2018"
+                      [(ngModel)]="dataEntrada">
+        </ion-datetime>
       </ion-item>
     
       <ion-item style="padding-left: 0px">
         <ion-label color="primary">Peso: </ion-label>
         <ion-input [brmasker]="{money: true, decimal: 3}"
-        [(ngModel)]="peso" type="tel" placeholder="em kilogramas (kg)"></ion-input>
+                    text-right
+                    [(ngModel)]="peso" type="tel" placeholder="em kilogramas (kg)"></ion-input>
       </ion-item>
     
       <ion-item style="padding-left: 0px">
         <ion-label color="primary">Idade: </ion-label>
-        <ion-input [(ngModel)]="idade" type="number" placeholder="em meses"></ion-input>
+        <ion-input text-right [(ngModel)]="idade" type="number" placeholder="em meses"></ion-input>
       </ion-item>
+
+      <ion-item style="padding-left: 0px" (ionChange)="doTipoRadio(tipoPorco)">
+          <ion-label color="primary">Tipo: </ion-label>
+          <ion-select text-right [(ngModel)]="tipoPorco">
+              <ion-option value="Matriz">Matriz</ion-option>
+              <ion-option value="Bácoro">Bácoro</ion-option>
+              <ion-option value="Adulto">Adulto</ion-option>
+          </ion-select>
+      </ion-item>
+
+      <ion-item [hidden]="tipoPorco != 'Matriz'" style="padding-left: 0px" >
+        <ion-label color="primary" >Cio? </ion-label>
+        <ion-select text-right [(ngModel)]="cio" (ionChange)="doCioRadio(cio)">
+            <ion-option value="Sim">Sim</ion-option>
+            <ion-option value="Não">Não</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-list [hidden]="tipoPorco != 'Matriz'" style="padding-left: 0px">
+          <ion-item style="padding-left: 0px">
+              <ion-label color="primary">Data dos partos: </ion-label>
+              <ion-datetime (ionChange)="addParto(dataParto)"
+                            min="2001"
+                            displayFormat="DD/MM/YYYY"
+                            cancelText="Cancelar"
+                            doneText="Ok"
+                            placeholder="Ex. 12/08/2018"
+                            [(ngModel)]="dataParto">
+              </ion-datetime>
+          </ion-item>
+          <ion-item *ngFor="let parto of partos" style="padding-left: 0px" text-right> {{parto}} </ion-item>
+      </ion-list>
+      
+
   </ion-list>
 
   <button class='cadastrar-button' ion-button block style="width: 90%; margin: auto; margin-top: 60px;"

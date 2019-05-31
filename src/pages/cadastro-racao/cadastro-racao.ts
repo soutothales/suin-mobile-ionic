@@ -16,10 +16,10 @@ import {CadastroService} from "../../services/cadastro/cadastro-service";
 })
 export class CadastroRacaoPage {
 
-  preco: string;
-  fornecedor: string;
-  quantidade: string;
-  tiporacao: string;
+  preco = '';
+  fornecedor = '';
+  quantidade = '';
+  tiporacao = '';
   empregado: string;
   datacompra: string = new Date().toISOString();
 
@@ -35,38 +35,48 @@ export class CadastroRacaoPage {
   }
 
   async cadastrarRacao() {
-
-    const alert = await this.alertController.create({
-      title: 'Você deseja realmente cadastrar esta ração?',
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          handler: () => {
-            console.log('Operação cancelada pelo usuário');
-          }
-        }, {
-          text: 'Enviar',
-          handler: () => {
-            this.cadastroService.cadastrarRacao(this.preco, this.fornecedor,
-                                                this.quantidade, this.tiporacao,
-                                                this.empregado, this.datacompra)
-            .subscribe(response => {
-              console.log(response);
-              this.cadastradoToast();
-              return this.navCtrl.setRoot("HomePage");
-            },
-            error => {
-              console.log(error);
-              this.notCadastradoToast();
-            });
-          }
-        }
-      ]
-    });
-
-    await alert.present();
     
+
+    if (this.preco.length == 0 ||
+        this.fornecedor.length == 0 ||
+        this.quantidade.length == 0 ||
+        this.tiporacao.length == 0) {
+          
+          this.notCadastradoToast(false);
+    } else {
+      const alert = await this.alertController.create({
+        title: 'Você deseja realmente cadastrar esta ração?',
+        buttons: [
+          {
+            text: 'Cancelar',
+            role: 'cancel',
+            handler: () => {
+              console.log('Operação cancelada pelo usuário');
+            }
+          }, {
+            text: 'Enviar',
+            handler: () => {
+              this.cadastroService.cadastrarRacao(this.preco, this.fornecedor,
+                                                  this.quantidade, this.tiporacao,
+                                                  this.empregado, this.datacompra)
+              .subscribe(response => {
+                console.log(response);
+                this.cadastradoToast();
+                return this.navCtrl.setRoot("HomePage");
+              },
+              error => {
+                console.log(error);
+                this.notCadastradoToast(true);
+              });
+            }
+          }
+        ]
+      });
+
+      await alert.present();
+
+    }
+
   }
 
   cadastradoToast() {
@@ -84,13 +94,25 @@ export class CadastroRacaoPage {
     toast.present();
   }
 
-  notCadastradoToast() {
-    let toast = this.toastCtrl.create({
-      message: 'Cadastro de ração não efetuado',
-      duration: 2000,
-      position: 'top',
-      cssClass: 'notCadastradoToast',
-    });
+  notCadastradoToast(allFilled: boolean) {
+    let toast;
+    if (allFilled == true) {
+      toast = this.toastCtrl.create({
+        message: 'Cadastro de ração não efetuado',
+        duration: 2000,
+        position: 'top',
+        cssClass: 'notCadastradoToast',
+      });
+      
+    } else {
+      toast = this.toastCtrl.create({
+        message: 'Por Favor preencha todos os campos!',
+        duration: 2000,
+        position: 'top',
+        cssClass: 'notCadastradoToast',
+      });
+
+    }   
 
     toast.onDidDismiss(() => {
       console.log('Dismissed toast');
