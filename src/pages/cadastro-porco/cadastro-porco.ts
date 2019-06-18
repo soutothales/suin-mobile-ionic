@@ -65,7 +65,7 @@ export class CadastroPorcoPage {
   }
 
   async cadastrarPorco() {
-    console.log(this.partos);
+    this.dataEntrada = this.changeDateFormat(this.dataEntrada);
 
     if (this.numporco.length == 0 ||
       this.dataEntrada.length == 0 ||

@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 
-export const API_URL = "http://150.165.15.87/auth/auth";
+export const API_URL = "https://suin.lsd.ufcg.edu.br/auth/auth"
+//"http://150.165.15.87/auth/auth";
 
 @Injectable()
 export class LoginService{
