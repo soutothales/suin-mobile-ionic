@@ -69,8 +69,7 @@
       <ion-list [hidden]="tipoPorco != 'Matriz'" style="padding-left: 0px">
           <ion-item style="padding-left: 0px">
               <ion-label color="primary">Data dos partos: </ion-label>
-              <ion-datetime (ionChange)="addParto(dataParto)"
-                            min="2001"
+              <ion-datetime min="2001"
                             displayFormat="DD/MM/YYYY"
                             cancelText="Cancelar"
                             doneText="Ok"
@@ -78,7 +77,17 @@
                             [(ngModel)]="dataParto">
               </ion-datetime>
           </ion-item>
-          <ion-item *ngFor="let parto of partos" style="padding-left: 0px" text-right> {{parto}} </ion-item>
+          <ion-item style="padding-left: 0px">
+            <ion-label color="primary">Número do Crias: </ion-label>
+            <ion-input min="0" text-right [(ngModel)]="numCria" type="number" placeholder="Ex. 10"></ion-input>
+          </ion-item>
+          <button *ngIf="numCria && dataParto" class='adicionar-parto-button' ion-button block style="width: 50%; align-self: end; margin-left: auto; margin-top: 10px;"
+            name="adicionarParto" (click)="addParto()">Registrar Parto</button>
+
+          <ion-item *ngFor="let parto of partos" style="padding-left: 0px" text-right> 
+            <p>Data: {{parto.dia}}</p>
+            <p> Quantidade de Crias: {{parto.crias}}</p>
+          </ion-item>
       </ion-list>
       
 

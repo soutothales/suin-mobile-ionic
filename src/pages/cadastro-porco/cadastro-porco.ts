@@ -24,6 +24,7 @@ export class CadastroPorcoPage {
   tipoPorco = '';
   partos = [];
   dataParto = '';
+  numCria: '';
 
   viewCio = '';
   mapCio = {
@@ -48,11 +49,16 @@ export class CadastroPorcoPage {
     return dateChanged;    
   }
 
-  async addParto(dataParto: string) {
-    let changedDataParto = await this.changeDateFormat(dataParto);
-    await this.partos.push(changedDataParto);
+  async addParto() {
+    if(!this.dataParto || !this.numCria) return;
+    let changedDataParto = await this.changeDateFormat(this.dataParto);
+    await this.partos.push({dia: changedDataParto, crias: this.numCria});
+    
     console.log(this.partos);
-    return this.dataParto = '';
+
+    this.numCria = '';
+    this.dataParto = '';
+    return;
   }
 
   doTipoRadio(tipo: string) {
@@ -76,6 +82,10 @@ export class CadastroPorcoPage {
         this.notCadastradoToast(false);
 
     } else {
+      this.partos = this.partos.map((parto)=>{return {[parto.dia]: parto.crias}});
+
+      console.log(this.partos);
+
       const alert = await this.alertController.create({
         title: 'Você deseja realmente cadastrar este porco?',
         buttons: [
