@@ -2,8 +2,8 @@ import { Injectable } from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 
 //http://150.165.15.87/
-export const API_URL_PORCO = "https://suin.lsd.ufcg.edu.br/api/pig";
-export const API_URL_RACAO = "https://suin.lsd.ufcg.edu.br/api/ration/";
+export const API_URL_PORCO = "http://150.165.85.67/api/pig";
+export const API_URL_RACAO = "http://150.165.85.67/api/ration";
 
 @Injectable()
 export class CadastroService {

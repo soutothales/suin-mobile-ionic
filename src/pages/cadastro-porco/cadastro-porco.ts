@@ -82,7 +82,11 @@ export class CadastroPorcoPage {
         this.notCadastradoToast(false);
 
     } else {
-      this.partos = this.partos.map((parto)=>{return {[parto.dia]: parto.crias}});
+
+      if (this.partos.length == 0 || this.isCio.length == 0 && this.tipoPorco != 'Matriz') {
+        this.partos = [];
+        this.isCio = '0';
+      }
 
       console.log(this.partos);
 
